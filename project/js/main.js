@@ -14,13 +14,16 @@ window.onload = function() {
     
     function preload() {
         // Load an image and call it 'logo'.
-        //game.load.image( 'logo', 'assets/phaser.png' );
         game.load.image( 'ship', 'assets/spaceship.png'); 
+        game.load.image('space', 'assets/space-background.jpg');
     }
     
     var bouncy;
+    var background;
     
     function create() {
+    	// Create a Background using the 'space' image.
+    	background = game.add.tileSprite(0,0,800,600, 'space');
         // Create a sprite at the center of the screen using the 'logo' image.
         bouncy = game.add.sprite( game.world.centerX, game.world.centerY, 'ship' );
         // Anchor the sprite at its center, as opposed to its top-left corner.
