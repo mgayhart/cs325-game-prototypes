@@ -16,14 +16,20 @@ window.onload = function() {
         // Load an image and call it 'logo'.
         game.load.image( 'ship', 'assets/spaceship.png'); 
         game.load.image('space', 'assets/space-background.jpg');
+        //Load Music
+        game.load.audio('music', 'assets/Dum-Dee-Dum.mp3');
     }
     
     var bouncy;
     var background;
+    var song;
     
     function create() {
     	// Create a Background using the 'space' image.
     	background = game.add.tileSprite(0,0,800,600, 'space');
+    	// Play music
+    	song = game.add.audio('music');
+    	song.play();
         // Create a sprite at the center of the screen using the 'logo' image.
         bouncy = game.add.sprite( game.world.centerX, game.world.centerY, 'ship' );
         // Anchor the sprite at its center, as opposed to its top-left corner.
