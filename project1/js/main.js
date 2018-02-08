@@ -56,4 +56,8 @@ window.onload = function() {
         // new trajectory.
         bouncy.rotation = game.physics.arcade.accelerateToPointer( bouncy, game.input.activePointer, 500, 500, 500 );
     }
+    function render() {
+    game.debug.soundInfo(music, 20, 32);
+}
+
 };
