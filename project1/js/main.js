@@ -17,7 +17,7 @@ window.onload = function() {
         game.load.image( 'ship', 'assets/spaceship.png'); 
         game.load.image('space', 'assets/space-background.jpg');
         //Load Music
-        game.load.audio('music', 'assets/Dum-Dee-Dum.mp3');
+        game.load.audio('music', ['assets/audio/Dum-Dee-Dum.mp3','assets/audio/Dum-Dee-Dum.ogg']);
     }
     
     var bouncy;
