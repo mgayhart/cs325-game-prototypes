@@ -46,8 +46,20 @@ window.onload = function() {
         var style = { font: "25px Verdana", fill: "#9999ff", align: "center" };
         var text = game.add.text( game.world.centerX, 15, "Take the ship for a ride", style );
         text.anchor.setTo( 0.5, 0.0 );
+        game.input.onDown.add(changeVolume, this);
     }
-    
+    function changeVolume(pointer) {
+
+    if (pointer.y < 300)
+    {
+        music.pause();
+    }
+    else
+    {
+        music.resume();
+    }
+
+}
     function update() {
         // Accelerate the 'logo' sprite towards the cursor,
         // accelerating at 500 pixels/second and moving no faster than 500 pixels/second
