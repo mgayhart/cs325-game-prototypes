@@ -20,6 +20,7 @@ window.onload = function() {
     var count;
     var count2;
     var text;
+    var text2;
     var button;
     
     function create() {
