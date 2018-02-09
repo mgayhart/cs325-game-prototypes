@@ -13,28 +13,34 @@ window.onload = function() {
     var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
     
     function preload() {
+    	game.load.image('circle', 'assets/circle.png');
+    	game.load.image( 'logo', 'assets/phaser.png' );
 
     }
     
     var count;
     var text;
+    var button;
     
     function create() {
-        count = 0;
         
+        count = 0;
+    
         text = game.add.text(game.world.centerX, game.world.centerY, "You have 0 dollars!", {
         	font: "65px Arial",
         	fill: "#ff0044",
         	align: "center"
         });
-        
+    
         text.anchor.setTo(0.5, 0.5);
         
+        button = game.add.button(game.world.centerX -100, 400, 'circle', actionOnClick, this, 2, 1, 0);
+        var a = game.add.sprite(game.world.centerX, game.world.centerY,'logo');
     }
     
     function update() {
 
-		game.input.onDown.addOnce(updateText, this);
+		//game.input.onDown.addOnce(updateText, this);
 			
     }
     
@@ -43,6 +49,15 @@ window.onload = function() {
     	count++;
     	
     	text.setText("You have " + count + " dollars!");
+    
+    }
+    
+    function actionOnClick(){
+    	
+    	count2++;
+    	
+    	text2.setText("You have " + count2 + " buttons!");
+    	
     
     }
 };
