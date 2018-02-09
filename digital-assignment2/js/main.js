@@ -26,6 +26,7 @@ window.onload = function() {
     function create() {
         
         count = 0;
+        count2 = 0;
     
         text = game.add.text(game.world.centerX, game.world.centerY, "You have 0 dollars!", {
         	font: "65px Arial",
