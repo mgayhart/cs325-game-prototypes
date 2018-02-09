@@ -14,11 +14,11 @@ window.onload = function() {
     
     function preload() {
     	game.load.image('circle', 'assets/circle.png');
-    	game.load.image( 'logo', 'assets/phaser.png' );
 
     }
     
     var count;
+    var count2;
     var text;
     var button;
     
@@ -31,16 +31,22 @@ window.onload = function() {
         	fill: "#ff0044",
         	align: "center"
         });
-    
+        text2 = game.add.text(game.world.centerX + 50, game.world.centerY + 50, "You have 0 buttons!", {
+        	font: "30px Arial",
+        	fill: "#ff0044",
+        	align: "center"
+        });
+        
         text.anchor.setTo(0.5, 0.5);
+        text2.anchor.setTo(0.5, 0.5);
         
         button = game.add.button(game.world.centerX -100, 400, 'circle', actionOnClick, this, 2, 1, 0);
-        var a = game.add.sprite(game.world.centerX, game.world.centerY,'logo');
+        
     }
     
     function update() {
 
-		//game.input.onDown.addOnce(updateText, this);
+		game.input.onDown.addOnce(updateText, this);
 			
     }
     
