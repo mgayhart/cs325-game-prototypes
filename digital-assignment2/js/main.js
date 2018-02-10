@@ -47,7 +47,7 @@ window.onload = function() {
     }
     
     function update() {
-		updateText();
+		game.time.events.add(Phaser.Timer.SECOND * 1, updateText, this);
 			
     }
     
