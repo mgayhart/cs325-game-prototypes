@@ -22,6 +22,7 @@ window.onload = function() {
     var text;
     var text2;
     var button;
+    var i;
     
     function create() {
         
@@ -47,13 +48,18 @@ window.onload = function() {
     }
     
     function update() {
-		game.time.events.add(Phaser.Timer.SECOND * 10, updateText, this);
-			
+		while( i !== 1){
+			game.time.events.add(Phaser.Timer.SECOND * 10, addMoney, this);
+			i++;
+		}
+		updateText();	
+    }
+    
+    function addMoney(){
+    	money = money + eggs;
     }
     
     function updateText() {
-    	
-    	money = money + eggs;
     	
     	text.setText("You have " + money + " dollars!");
     
@@ -63,6 +69,7 @@ window.onload = function() {
     	
     	money = money - 10;
     	eggs++;
+    	updateText();
     	
     	text2.setText("You have " + eggs + " eggs!");
     	
