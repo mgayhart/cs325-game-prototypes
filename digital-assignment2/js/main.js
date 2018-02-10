@@ -19,6 +19,7 @@ window.onload = function() {
     
     var money;
     var eggs;
+    var text;
     var text2;
     var button;
     
