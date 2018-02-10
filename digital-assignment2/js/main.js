@@ -28,7 +28,7 @@ window.onload = function() {
         money = 0;
         eggs = 0;
     
-        text = game.add.text(game.world.centerX , game.world.centerY - 300 , "You have 0 dollars!", {
+        text = game.add.text(game.world.centerX , game.world.centerY - 150 , "You have 0 dollars!", {
         	font: "25px Arial",
         	fill: "#ff0044",
         	align: "center"
@@ -42,7 +42,7 @@ window.onload = function() {
         text.anchor.setTo(0.5, 0.5);
         text2.anchor.setTo(0.5, 0.5);
         
-        button = game.add.button(game.world.centerX + 350, 400, 'circle', actionOnClick, this, 2, 1, 0);
+        button = game.add.button(game.world.centerX + 175, 400, 'circle', actionOnClick, this, 2, 1, 0);
         
     }
     
