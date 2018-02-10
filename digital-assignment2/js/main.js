@@ -17,24 +17,23 @@ window.onload = function() {
 
     }
     
-    var count;
-    var count2;
-    var text;
+    var money;
+    var eggs;
     var text2;
     var button;
     
     function create() {
         
-        count = 0;
-        count2 = 0;
+        money = 0;
+        eggs = 0;
     
-        text = game.add.text(game.world.centerX, game.world.centerY, "You have 0 dollars!", {
-        	font: "65px Arial",
+        text = game.add.text(game.world.centerX , game.world.centerY - 300 , "You have 0 dollars!", {
+        	font: "25px Arial",
         	fill: "#ff0044",
         	align: "center"
         });
-        text2 = game.add.text(game.world.centerX + 50, game.world.centerY + 50, "You have 0 buttons!", {
-        	font: "30px Arial",
+        text2 = game.add.text(game.world.centerX + 50, game.world.centerY + 50, "You have 0 eggs!", {
+        	font: "20px Arial",
         	fill: "#ff0044",
         	align: "center"
         });
@@ -42,29 +41,29 @@ window.onload = function() {
         text.anchor.setTo(0.5, 0.5);
         text2.anchor.setTo(0.5, 0.5);
         
-        button = game.add.button(game.world.centerX -100, 400, 'circle', actionOnClick, this, 2, 1, 0);
+        button = game.add.button(game.world.centerX + 350, 400, 'circle', actionOnClick, this, 2, 1, 0);
         
     }
     
     function update() {
-
-		game.input.onDown.addOnce(updateText, this);
+		updateText();
 			
     }
     
     function updateText() {
     	
-    	count++;
+    	money = money + eggs;
     	
-    	text.setText("You have " + count + " dollars!");
+    	text.setText("You have " + money + " dollars!");
     
     }
     
     function actionOnClick(){
     	
-    	count2++;
+    	money = money - 10;
+    	eggs++;
     	
-    	text2.setText("You have " + count2 + " buttons!");
+    	text2.setText("You have " + eggs + " eggs!");
     	
     
     }
