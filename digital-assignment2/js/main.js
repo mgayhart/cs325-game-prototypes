@@ -48,8 +48,8 @@ window.onload = function() {
     }
     
     function update() {
-		addMoney();
-		updateText();	
+        addMoney();
+        updateText();	
     }
     
     function addMoney(){
@@ -58,9 +58,9 @@ window.onload = function() {
 
     }
 
-	function eggPay(){
+    function eggPay(){
 		
-		money = money + eggs;
+        money = money + eggs;
 		
 	}
     
