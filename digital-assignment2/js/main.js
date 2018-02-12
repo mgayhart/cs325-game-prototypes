@@ -48,16 +48,21 @@ window.onload = function() {
     }
     
     function update() {
-		while( i !== 1){
-			game.time.events.add(Phaser.Timer.SECOND * 10, addMoney, this);
-			i++;
-		}
+		addMoney();
 		updateText();	
     }
     
     function addMoney(){
-    	money = money + eggs;
+    
+    	game.time.events.add(Phaser.Timer.SECOND * 10, eggPay, this);
+
     }
+
+	function eggPay(){
+		
+		money = money + eggs;
+		
+	}
     
     function updateText() {
     	
@@ -66,13 +71,13 @@ window.onload = function() {
     }
     
     function actionOnClick(){
-    	
-    	money = money - 10;
-    	eggs++;
+    	if(money - 10 <= 0){
+    		money = money - 10;
+    		eggs++;
+    	}
     	updateText();
     	
     	text2.setText("You have " + eggs + " eggs!");
     	
-    
     }
 };
