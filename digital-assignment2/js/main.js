@@ -26,7 +26,7 @@ window.onload = function() {
     
     function create() {
         
-        money = 0;
+        money = 10;
         eggs = 0;
     
         text = game.add.text(game.world.centerX , game.world.centerY - 150 , "You have 0 dollars!", {
