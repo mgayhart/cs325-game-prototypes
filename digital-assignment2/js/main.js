@@ -54,7 +54,7 @@ window.onload = function() {
     
     function addMoney(){
     
-    	game.time.events.loop(Phaser.Timer.SECOND * 10, eggPay, this);
+    	game.time.events.loop(Phaser.Timer.SECOND * 3, eggPay, this);
 
     }
 
