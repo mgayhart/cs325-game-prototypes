@@ -44,11 +44,12 @@ window.onload = function() {
         text2.anchor.setTo(0.5, 0.5);
         
         button = game.add.button(game.world.centerX + 175, 400, 'circle', actionOnClick, this, 2, 1, 0);
+        game.time.events.loop(Phaser.Timer.SECOND * 3, eggPay, this);
         
     }
     
     function update() {
-        game.time.events.loop(Phaser.Timer.SECOND * 3, eggPay, this);
+        
         updateText();	
     }
     
