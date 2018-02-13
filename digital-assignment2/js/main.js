@@ -48,15 +48,10 @@ window.onload = function() {
     }
     
     function update() {
-        addMoney();
+        game.time.events.loop(Phaser.Timer.SECOND * 3, eggPay, this);
         updateText();	
     }
     
-    function addMoney(){
-    
-    	game.time.events.loop(Phaser.Timer.SECOND * 3, eggPay, this);
-
-    }
 
     function eggPay(){
 		
