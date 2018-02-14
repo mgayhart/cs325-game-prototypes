@@ -1,14 +1,7 @@
 "use strict";
+//Author: Matthew Gayhart
 
 window.onload = function() {
-    // You can copy-and-paste the code from any of the examples at http://examples.phaser.io here.
-    // You will need to change the fourth parameter to "new Phaser.Game()" from
-    // 'phaser-example' to 'game', which is the id of the HTML element where we
-    // want the game to go.
-    // The assets (and code) can be found at: https://github.com/photonstorm/phaser/tree/master/examples/assets
-    // You will need to change the paths you pass to "game.load.image()" or any other
-    // loading functions to reflect where you are putting the assets.
-    // All loading functions will typically all be found inside "preload()".
     
     var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
     
@@ -16,13 +9,15 @@ window.onload = function() {
     	game.load.image('circle', 'assets/circle.png');
 
     }
+    //Text variables used for printing information about each business
     var moneyText;
     var eggText;
     var chickenText;
     var farmText;
     var driveText;
     var fineText;
-    
+   
+   //counters for the different businesses 
     var money;
     var eggs;
     var chicken;
@@ -30,6 +25,21 @@ window.onload = function() {
     var drive;
     var fine;
     
+    //Counters for the cost of each business
+    var eggCost;
+    var chickenCost;
+    var farmCost;
+    var driveCost;
+    var fineCost;
+    
+    //Time Variables responsible for the amount of time that each business takes to make money
+    var eggTime;
+    var chickenTime;
+    var farmTime;
+    var driveTime;
+    var fineTime;
+    
+    // Button variables for each business, used to purchase more businesses
     var eggButton;
     var chickenButton;
     var farmButton;
@@ -46,13 +56,21 @@ window.onload = function() {
         drive = 0;
         fine = 0;
         
-    //text creations for the different counters used in the game
+        
+        //Set the times in seconds for each of the businesses to produce money
+        eggTime = 1;
+        chickenTime = 3;
+        farmTime = 5;
+        driveTime = 7;
+        fineTime = 9;
+        
+        //text creations for the different counters used in the game
         moneyText = game.add.text(game.world.centerX , game.world.centerY - 250 , "You have 0 Dollars!", {
         	font: "25px Arial",
-        	fill: "#ff0044",
+        	fill: "#3ec120",
         	align: "center"
         });
-        eggText = game.add.text(game.world.centerX - 150, game.world.centerY - 200, "You have 0 Eggs!", {
+        eggText = game.add.text(game.world.centerX - 150, game.world.centerY - 200, "You have " + eggs+ " Eggs!", {
         	font: "20px Arial",
         	fill: "#ff0044",
         	align: "center"
@@ -90,18 +108,18 @@ window.onload = function() {
         fineText.anchor.setTo(0, 0.5);
        
     //Button creations for each of the businesses 
-        eggButton = game.add.button(game.world.centerX + 175, 400, 'circle', eggAction, this, 2, 1, 0);
-    	chickenButton = game.add.button(game.world.centerX, game.world.centerY, 'circle', chickenAction, this, 2, 1, 0);
-    	farmButton = game.add.button(game.world.centerX, game.world.centerY, 'circle', farmAction, this, 2, 1, 0);
-    	driveButton = game.add.button(game.world.centerX, game.world.centerY, 'circle', driveAction, this, 2, 1, 0);
-    	fineButton = game.add.button(game.world.centerX, game.world.centerY, 'circle', fineAction, this, 2, 1, 0);
+        eggButton = game.add.button(game.world.centerX - 375, 0, 'circle', eggAction, this, 2, 1, 0);
+    	chickenButton = game.add.button(25, 130, 'circle', chickenAction, this, 2, 1, 0);
+    	farmButton = game.add.button(25, 260, 'circle', farmAction, this, 2, 1, 0);
+    	driveButton = game.add.button(25, 390, 'circle', driveAction, this, 2, 1, 0);
+    	fineButton = game.add.button(25, 520, 'circle', fineAction, this, 2, 1, 0);
     	
     	//money loops 
-        game.time.events.loop(Phaser.Timer.SECOND, eggPay, this);
-        game.time.events.loop(Phaser.Timer.SECOND * 5, chickenPay, this);
-        game.time.events.loop(Phaser.Timer.SECOND, farmPay, this);
-		game.time.events.loop(Phaser.Timer.SECOND, drivePay, this);
-		game.time.events.loop(Phaser.Timer.SECOND, finePay, this);
+        game.time.events.loop(Phaser.Timer.SECOND * eggTime, eggPay, this);
+        game.time.events.loop(Phaser.Timer.SECOND * chickenTime, chickenPay, this);
+        game.time.events.loop(Phaser.Timer.SECOND * farmTime, farmPay, this);
+		game.time.events.loop(Phaser.Timer.SECOND * driveTime, drivePay, this);
+		game.time.events.loop(Phaser.Timer.SECOND * fineTime, finePay, this);
         
     }
     
@@ -119,15 +137,15 @@ window.onload = function() {
 	}
     
     function farmPay(){
-		money = money + (farm * 100);
+		money = money + (farm * 500);
 	}
 	
 	function drivePay(){
-		money = money + (drive * 100);
+		money = money + (drive * 1000);
 	}
 	
 	function finePay(){
-		money = money + (fine * 100);
+		money = money + (fine * 10000);
 	}
     
     function updateText() {
@@ -145,8 +163,8 @@ window.onload = function() {
     }
     
     function chickenAction(){
-    	if(money - 1000 >= 0){
-    		money = money - 1000;
+    	if(money - 250 >= 0){
+    		money = money - 250;
     		chicken++;
     	}
     	updateText();
@@ -163,8 +181,8 @@ window.onload = function() {
     }
     
     function driveAction(){
-    	if(money - 1000 >= 0){
-    		money = money - 1000;
+    	if(money - 10000 >= 0){
+    		money = money - 10000;
     		drive++;
     	}
     	updateText();
@@ -172,8 +190,8 @@ window.onload = function() {
     }
     
     function fineAction(){
-    	if(money - 1000 >= 0){
-    		money = money - 1000;
+    	if(money - 50000 >= 0){
+    		money = money - 50000;
     		fine++;
     	}
     	updateText();
