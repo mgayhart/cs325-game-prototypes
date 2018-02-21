@@ -17,12 +17,10 @@ GameStates.makeGame = function( game, shared ) {
     return {
     
         create: function () {
-    
             var star = game.add.sprite(300, 200, 'red');
-            
             var shine = star.animations.add('shine');
-            
             star.animations.play('shine', 15, true);
+            var lgun = game.add.sprite(100, 100, 'gun');
         },
     
         update: function () {

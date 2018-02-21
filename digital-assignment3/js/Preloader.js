@@ -29,6 +29,7 @@ GameStates.makePreloader = function( game ) {
             //	+ lots of other required assets here
             game.load.image( 'logo', 'assets/phaser.png' );
             game.load.spritesheet('red', 'assets/redstar.png', 84, 84);
+            game.load.image('gun', 'assets/laser-gun.png');
         },
     
         create: function () {
