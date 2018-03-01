@@ -43,6 +43,13 @@ window.onload = function() {
     var driveCost;
     var fineCost;
     
+    //Variables for storing the starting base price of businesses
+    var eggStart;
+    var chickenStart;
+    var farmStart;
+    var driveStart;
+    var fineStart;
+    
     //Time Variables responsible for the amount of time that each business takes to make money
     var eggTime;
     var chickenTime;
@@ -93,6 +100,12 @@ window.onload = function() {
         driveCost = 10000;
         fineCost = 50000;
         
+        //set the base cost of each business
+        eggStart = 10;
+        chickenStart = 250;
+        farmStart = 1000;
+        driveStart = 10000;
+        fineStart = 50000;
         
         //Set the times in seconds for each of the businesses to produce money
         eggTime = 1;
@@ -210,6 +223,7 @@ window.onload = function() {
     		eggs++;
     		eggMoney = eggs * eggMult * 1; 
     		moneySound.play();
+    		eggCost = eggCost + eggStart;
     	}
     	updateText();
     	eggText.setText("You have " + eggs + " Eggs! Your eggs are producing " + eggMoney + " every " + eggTime + " seconds.  1 Egg costs: " + eggCost + " dollars!");	
@@ -221,6 +235,7 @@ window.onload = function() {
     		chicken++;
     		chickenMoney = chicken * chickenMult * 100;
     		moneySound.play();
+    		chickenCost = chickenCost + chickenStart;
     	}
     	updateText();
     	chickenText.setText("You have " + chicken + " Chickens! They are producing $" + chickenMoney + " every " + chickenTime + " seconds.  1 Chicken costs: " + chickenCost + " dollars!");
@@ -232,6 +247,7 @@ window.onload = function() {
     		farm++;
     		farmMoney = farm * farmMult * 500;
     		moneySound.play();
+    		farmCost = farmCost + farmStart;
     	}
     	updateText();
     	farmText.setText("You have " + farm + " Farms! They are producing $" + farmMoney + " every " + farmTime + " seconds.  1 Farm costs: " + farmCost + " dollars!");
@@ -243,6 +259,7 @@ window.onload = function() {
     		drive++;
     		driveMoney = drive * driveMult * 1000;
     		moneySound.play();
+    		driveCost = driveCost + driveStart;
     	}
     	updateText();
     	driveText.setText("You have " + drive + " Drive-Thru's! They are producing $" + driveMoney + " every " + driveTime + " seconds.  1 Drive-Thru costs: " + driveCost + " dollars!");
@@ -254,6 +271,7 @@ window.onload = function() {
     		fine++;
     		fineMoney = fine * fineMult * 10000;
     		moneySound.play();
+    		fineCost = fineCost + fineStart;
     	}
     	updateText();
     	fineText.setText("You have " + fine + " Fine Dining Restaurants! They are producing $" + fineMoney + " every " + fineTime + " seconds.  1 Restaurant costs: " + fineCost + " dollars!");
