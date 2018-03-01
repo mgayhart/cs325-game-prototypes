@@ -11,7 +11,7 @@ window.onload = function() {
     	game.load.image('egg', 'assets/egg.png');
     	game.load.image('farm', 'assets/farm.png');
     	game.load.image('fineDine', 'assets/fineDine.png');
-    	game.load.sound('money', 'assets/sounds/Cha_Ching.mp3');
+    	game.load.audio('money', 'assets/sounds/Cha_Ching.mp3');
     	game.load.image('background', 'assets/background.jpg');
 
     }
