@@ -12,9 +12,12 @@ window.onload = function() {
     	game.load.image('farm', 'assets/farm.png');
     	game.load.image('fineDine', 'assets/fineDine.png');
     	game.load.sound('money', 'assets/sounds/Cha_Ching.mp3');
+    	game.load.image('background', 'assets/background.jpg');
 
     }
     
+    //background variable
+    var background;
     // Money sound variable
     var moneySound;
     //Text variables used for printing information about each business
@@ -69,6 +72,8 @@ window.onload = function() {
     var fineButton;
     
     function create() {
+    
+    	background = game.add.tileSprite(0,0,1200,600, 'background');
        
        //create the sound and begin decoding the file
        moneySound = game.add.audio('money');
