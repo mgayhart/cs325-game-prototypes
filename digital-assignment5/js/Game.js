@@ -120,8 +120,8 @@ GameStates.makeGame = function( game, shared ) {
         
         starCollisionHandler: function(ship, star){
         	explosion = game.add.sprite(ship.body.x, ship.body.y, 'kaboom');
-        	explosion.animation.add('kaboom');
-        	explosion.animation.play('kaboom', 30, false, true);
+        	explosion.animations.add('kaboom');
+        	explosion.animations.play('kaboom', 30, false, true);
         	ship.kill();
         	var finalScore = score;
         	
