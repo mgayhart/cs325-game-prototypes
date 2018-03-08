@@ -38,7 +38,7 @@ GameStates.makeGame = function( game, shared ) {
             game.physics.arcade.enable(ship);
             ship.body.collideWorldBounds = true;
             ship.body.setSize(50, 66, 12.5, 5.5);
-            explosion = explosion.animation.add('kaboom');
+            
         	
         	//Star groups "stars" being the red stars and "blueStars" being the good blue ones
         	stars = game.add.physicsGroup();
@@ -119,6 +119,8 @@ GameStates.makeGame = function( game, shared ) {
         },
         
         starCollisionHandler: function(ship, star){
+        	explosion = game.add.sprite(ship.body.x, ship.body.y, 'kaboom');
+        	explosion.animation.add('kaboom');
         	explosion.animation.play('kaboom', 30, false, true);
         	ship.kill();
         	var finalScore = score;
