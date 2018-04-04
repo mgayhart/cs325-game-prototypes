@@ -32,7 +32,7 @@ GameStates.makeGame = function( game, shared ) {
             bmd.addToWorld();
             //Create an enter key, so as to end the input.
             enterKey = game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
-            enterKey.onDown.this.checkString();
+            enterKey.onDown.this.solved();
             //Stop the spacebar from scrolling the browser
             game.input.keyboard.addKeyCapture(32);
             
@@ -57,7 +57,7 @@ GameStates.makeGame = function( game, shared ) {
         	bmd.addToWorld();
         },
         
-        checkString(){
+        solved(){
         	if(out === word){
         		console.log("YOU DID IT");
         	}
