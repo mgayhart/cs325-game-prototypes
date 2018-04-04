@@ -8,10 +8,15 @@ window.onload = function() {
 
 	//	Add the States your game has.
 	//	You don't have to do this in the html, it could be done in your Boot state too, but for simplicity I'll keep it here.
-	game.state.add('Boot', BasicGame.Boot);
-	game.state.add('Preloader', BasicGame.Preloader);
-	game.state.add('MainMenu', BasicGame.MainMenu);
-	game.state.add('Game', BasicGame.Game);
+	
+	// An object for shared variables, so that them main menu can show
+	// the high score if you want.
+	var shared = {};
+	
+	game.state.add( 'Boot', GameStates.makeBoot( game ) );
+	game.state.add( 'Preloader', GameStates.makePreloader( game ) );
+	game.state.add( 'MainMenu', GameStates.makeMainMenu( game, shared ) );
+	game.state.add( 'Game', GameStates.makeGame( game, shared ) );
 
 	//	Now start the Boot state.
 	game.state.start('Boot');
