@@ -5,6 +5,7 @@ GameStates.makeGame = function( game, shared ) {
     var word = "teeth";
     var out = "";
     var bmd;
+    var enterKey;
    	
     
     function quitGame() {
@@ -20,13 +21,22 @@ GameStates.makeGame = function( game, shared ) {
     return {
     
         create: function () {
+    		//Add background, NEED TO EDIT THE IMAGE STILL!!
     		background = game.add.tileSprite(0,0,800,600, 'background');
+    		
+    		//Bitmap Data, for the first area of text.
             bmd = game.make.bitmapData(800, 200);
             bmd.context.font = '64px Arial';
             bmd.context.fillStyle = '#ffffff';
             bmd.context.fillText(word, 64, 64);
             bmd.addToWorld();
+            //Create an enter key, so as to end the input.
+            enterKey = game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
+            enterKey.onDown.this.checkString();
+            //Stop the spacebar from scrolling the browser
+            game.input.keyboard.addKeyCapture(32);
             
+            //Call Key Press and allow input, so user can answer riddles.
             game.input.keyboard.addCallbacks(this, null, null, this.keyPress);
         },
     
@@ -45,12 +55,15 @@ GameStates.makeGame = function( game, shared ) {
         	
         	bmd.context.fillText(out, x, 64);
         	bmd.addToWorld();
-        	this.yas();
         },
         
-        yas: function(){
-        	var b = "boi u did it";
-        	bmd.context.fillText(b, 64, 64);
+        checkString(){
+        	if(out === word){
+        		console.log("YOU DID IT");
+        	}
+        	else{
+        		console.log("Not Quite, bud");
+        	}
         }
     };
 };
