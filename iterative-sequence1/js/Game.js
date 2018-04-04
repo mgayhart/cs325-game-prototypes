@@ -39,6 +39,7 @@ GameStates.makeGame = function( game, shared ) {
         	var x = 64;
         	
         	bmd.context.fillText(char, x, 64);
+        	bmd.addToWorld();
         }
     };
 };
