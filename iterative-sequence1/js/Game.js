@@ -3,6 +3,7 @@
 GameStates.makeGame = function( game, shared ) {
     var background;
     var word = "teeth";
+    var out = "";
     var bmd;
    	
     
@@ -40,8 +41,9 @@ GameStates.makeGame = function( game, shared ) {
         		char = 'f';
         	}
         	var x = 64;
+        	out = out + char;
         	
-        	bmd.context.fillText(char, x, 64);
+        	bmd.context.fillText(out, x, 64);
         	bmd.addToWorld();
         }
     };
