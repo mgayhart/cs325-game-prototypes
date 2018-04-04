@@ -45,6 +45,12 @@ GameStates.makeGame = function( game, shared ) {
         	
         	bmd.context.fillText(out, x, 64);
         	bmd.addToWorld();
+        	this.yas;
+        },
+        
+        yas: function(){
+        	var b = "boi u did it";
+        	bmd.context.fillText(b, 64, 64);
         }
     };
 };
