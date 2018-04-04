@@ -2,6 +2,8 @@
 
 GameStates.makeGame = function( game, shared ) {
     var background;
+    var word = "teeth";
+    var bmd;
    	
     
     function quitGame() {
@@ -18,12 +20,23 @@ GameStates.makeGame = function( game, shared ) {
     
         create: function () {
     		background = game.add.tileSprite(0,0,800,600, 'background');
+            bmd = game.make.bitmapData(800, 200);
+            bmd.context.font = '64px Arial';
+            bmd.context.fillStyle = '#ffffff';
             
         },
     
         update: function () {
     
           
+        },
+        
+        keyPress: function(char){
+        	bmd.cls();
+        	
+        	var x = 64;
+        	
+        	bmd.context.fillText(char, x, 64);
         }
     };
 };
