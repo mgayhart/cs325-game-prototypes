@@ -23,6 +23,7 @@ GameStates.makeGame = function( game, shared ) {
             bmd = game.make.bitmapData(800, 200);
             bmd.context.font = '64px Arial';
             bmd.context.fillStyle = '#ffffff';
+            bmd.context.fillText(word, 64, 64);
             bmd.addToWorld();
             
         },
