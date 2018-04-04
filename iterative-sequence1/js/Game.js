@@ -36,7 +36,9 @@ GameStates.makeGame = function( game, shared ) {
         
         keyPress: function(char){
         	bmd.cls();
-        	
+        	if(char === 'enter'){
+        		char = 'f';
+        	}
         	var x = 64;
         	
         	bmd.context.fillText(char, x, 64);
