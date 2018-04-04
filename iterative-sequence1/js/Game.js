@@ -45,7 +45,7 @@ GameStates.makeGame = function( game, shared ) {
         	
         	bmd.context.fillText(out, x, 64);
         	bmd.addToWorld();
-        	this.yas;
+        	this.yas();
         },
         
         yas: function(){
