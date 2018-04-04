@@ -26,6 +26,7 @@ GameStates.makeGame = function( game, shared ) {
             bmd.context.fillText(word, 64, 64);
             bmd.addToWorld();
             
+            game.input.keyboard.addCallbacks(this, null, null, keyPress);
         },
     
         update: function () {
