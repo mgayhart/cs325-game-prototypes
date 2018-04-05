@@ -100,7 +100,6 @@ GameStates.makeGame = function( game, shared ) {
         		strike++;
         		if(strike === 3){
         			text.destroy();
-        			bmd.cls();
         			stateText.text=" You Lose, try again. \n Click to return to menu";
         			stateText.visible = true;
 
@@ -116,7 +115,6 @@ GameStates.makeGame = function( game, shared ) {
         	if(riddleNum === riddles.length){
         		//Player won, go to win Scenario
         		text.destroy();
-        		bmd.cls();
         		stateText.text=" You Win! \n Click to return to menu";
         		stateText.visible = true;
 
@@ -143,10 +141,6 @@ GameStates.makeGame = function( game, shared ) {
         
         end: function(){
         	quitGame();
-        },
-        
-        strt: function(){
-        	timer.start();
         }
     };
 };
