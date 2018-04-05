@@ -95,7 +95,7 @@ GameStates.makeGame = function( game, shared ) {
         		strike++;
         		if(strike === 3){
         			text = game.add.text(400, 600, "Try Again!", {font: "50px Arial", fill: "#ffffff"});
-        			//timer.start();
+        			timer.loop(5000, this.strt(), this);
         		}
         		out = "";
         	}
@@ -108,8 +108,7 @@ GameStates.makeGame = function( game, shared ) {
         		bmd.destroy();
         		text = game.add.text(400, 300, "You Win!", {font: "65px Arial", fill: "#ffffff"});
         		timer = game.time.create(false);
-            	timer.loop(5000, this.end(), this);
-        		timer.start();
+            	timer.loop(5000, this.strt(), this);
         		console.log("Nailed it");
         		return;
         	}
@@ -132,6 +131,10 @@ GameStates.makeGame = function( game, shared ) {
         
         end: function(){
         	quitGame();
+        },
+        
+        strt: function(){
+        	timer.start();
         }
     };
 };
