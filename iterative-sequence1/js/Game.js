@@ -83,6 +83,7 @@ GameStates.makeGame = function( game, shared ) {
         		out = "";
         		riddleNum++;
         		text.destroy();
+        		text = game.add.text(32,32,'', {font: "15px Arial", fill: "#ffffff"});
         		this.nextRiddle();
         	}
         	else{
