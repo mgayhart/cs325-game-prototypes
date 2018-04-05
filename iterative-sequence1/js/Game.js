@@ -64,8 +64,7 @@ GameStates.makeGame = function( game, shared ) {
             //Call Key Press and allow input, so user can answer riddles.
             game.input.keyboard.addCallbacks(this, null, null, this.keyPress);
             
-            timer = game.time.create(false);
-            timer.loop(5000, this.end(), this);
+           
         },
     
         update: function () {
@@ -96,7 +95,7 @@ GameStates.makeGame = function( game, shared ) {
         		strike++;
         		if(strike === 3){
         			text = game.add.text(400, 600, "Try Again!", {font: "50px Arial", fill: "#ffffff"});
-        			timer.start();
+        			//timer.start();
         		}
         		out = "";
         	}
@@ -108,6 +107,8 @@ GameStates.makeGame = function( game, shared ) {
         		text.destroy();
         		bmd.destroy();
         		text = game.add.text(400, 300, "You Win!", {font: "65px Arial", fill: "#ffffff"});
+        		timer = game.time.create(false);
+            	timer.loop(5000, this.end(), this);
         		timer.start();
         		console.log("Nailed it");
         		return;
