@@ -82,6 +82,7 @@ GameStates.makeGame = function( game, shared ) {
         		console.log("Decent!");
         		out = "";
         		riddleNum++;
+        		text.destroy();
         		this.nextRiddle();
         	}
         	else{
