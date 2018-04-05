@@ -79,9 +79,7 @@ GameStates.makeGame = function( game, shared ) {
         solved(){
         	if(out === solutions[riddleNum]){
         		console.log("Decent!");
-        		out = " ";
-        		bmd.context.fillText(out,64,64);
-        		bmd.addToWorld();
+        		out = "";
         		riddleNum++;
         		text.destroy();
         		text = game.add.text(30,300,'', {font: "35px Arial", fill: "#ffffff", wordWrap: true, wordWrapWidth: 600});
@@ -96,6 +94,10 @@ GameStates.makeGame = function( game, shared ) {
         nextRiddle: function(){
         	if(riddleNum === riddles.length){
         		//Player won, go to win Scenario
+        		text.destroy();
+        		bmd.destroy();
+        		text = game.add.text(400, 300, "You Win!", {font: "65px Arial", fill: "#ffffff"});
+        		game.time.events(5000, quitGame());
         		console.log("Nailed it");
         		return;
         	}
