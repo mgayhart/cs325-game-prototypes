@@ -24,6 +24,8 @@ GameStates.makeGame = function( game, shared ) {
     var bmdComplete;
     var bmdFail;
     var enterKey;
+    
+    var strike = 0;
    	
     
     function quitGame() {
@@ -87,6 +89,10 @@ GameStates.makeGame = function( game, shared ) {
         	}
         	else{
         		console.log("Not Quite, bud");
+        		strike++;
+        		if(strike === 3){
+        			this.end();
+        		}
         		out = "";
         	}
         },
@@ -97,7 +103,7 @@ GameStates.makeGame = function( game, shared ) {
         		text.destroy();
         		bmd.destroy();
         		text = game.add.text(400, 300, "You Win!", {font: "65px Arial", fill: "#ffffff"});
-        		game.time.events.add(5000, quitGame);
+        		game.time.events.add(5000, this.end(), this);
         		console.log("Nailed it");
         		return;
         	}
@@ -116,6 +122,10 @@ GameStates.makeGame = function( game, shared ) {
         	
         	}
         
+        },
+        
+        end: function(){
+        	quitGame();
         }
     };
 };
