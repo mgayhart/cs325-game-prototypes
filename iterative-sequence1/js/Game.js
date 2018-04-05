@@ -26,14 +26,15 @@ GameStates.makeGame = function( game, shared ) {
     var enterKey;
     
     var strike = 0;
-   	var timer;
+   	var stateText;
+   	
     
     function quitGame() {
 
         //  Here you should destroy anything you no longer need.
         //  Stop music, delete sprites, purge caches, free resources, all that good stuff.
 		text.destroy();
-		timer.destroy();
+		bmd.destroy();
         //  Then let's go back to the main menu.
         game.state.start('MainMenu');
 
@@ -64,6 +65,10 @@ GameStates.makeGame = function( game, shared ) {
             //Call Key Press and allow input, so user can answer riddles.
             game.input.keyboard.addCallbacks(this, null, null, this.keyPress);
             
+            stateText = game.add.text(game.world.centerX,game.world.centerY,' ', { font: '84px Arial', fill: '#fff' });
+   	 		stateText.anchor.setTo(0.5, 0.5);
+    		stateText.visible = false;
+           
            
         },
     
@@ -94,8 +99,12 @@ GameStates.makeGame = function( game, shared ) {
         		console.log("Not Quite, bud");
         		strike++;
         		if(strike === 3){
-        			text = game.add.text(400, 600, "Try Again!", {font: "50px Arial", fill: "#ffffff"});
-        			timer.loop(5000, this.strt(), this);
+        			stateText.text=" You Lose, try again. \n Click to return to menu";
+        			stateText.visible = true;
+
+        			//the "click to menu" handler
+        			game.input.onTap.addOnce(this.quitGame,this);
+        			return;
         		}
         		out = "";
         	}
@@ -106,10 +115,11 @@ GameStates.makeGame = function( game, shared ) {
         		//Player won, go to win Scenario
         		text.destroy();
         		bmd.destroy();
-        		text = game.add.text(400, 300, "You Win!", {font: "65px Arial", fill: "#ffffff"});
-        		timer = game.time.create(false);
-            	timer.loop(5000, this.strt(), this);
-        		console.log("Nailed it");
+        		stateText.text=" You Win! \n Click to return to menu";
+        		stateText.visible = true;
+
+        		//the "click to menu" handler
+        		game.input.onTap.addOnce(this.quitGame,this);
         		return;
         	}
         	else{
