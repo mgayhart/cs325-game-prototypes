@@ -46,7 +46,7 @@ GameStates.makeGame = function( game, shared ) {
     		this.nextRiddle();
     		
     		//Bitmap Data, for the riddle area of text.
-            bmd = game.make.bitmapData(800, 0);
+            bmd = game.make.bitmapData(400, 300);
             bmd.context.font = '64px Arial';
             bmd.context.fillStyle = '#ffffff';
            // bmd.context.fillText(riddles[0], 64, 64);
