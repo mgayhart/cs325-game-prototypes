@@ -42,14 +42,13 @@ GameStates.makeGame = function( game, shared ) {
     		//Add background, NEED TO EDIT THE IMAGE STILL!!
     		background = game.add.tileSprite(0,0,800,600, 'background');
     		
-    		text = game.add.text(30,300,'', {font: "35px Arial", fill: "#ffffff"});
+    		text = game.add.text(30,300,'', {font: "35px Arial", fill: "#ffffff", wordWrap: true, wordWrapWidth: 600});
     		this.nextRiddle();
     		
-    		//Bitmap Data, for the riddle area of text.
-            bmd = game.make.bitmapData(400, 300);
+    		//Bitmap Data, for the riddle answers area of text.
+            bmd = game.make.bitmapData(800, 600);
             bmd.context.font = '64px Arial';
             bmd.context.fillStyle = '#ffffff';
-           // bmd.context.fillText(riddles[0], 64, 64);
             bmd.addToWorld();
             
             
@@ -81,6 +80,8 @@ GameStates.makeGame = function( game, shared ) {
         	if(out === solutions[riddleNum]){
         		console.log("Decent!");
         		out = "";
+        		bmd.context.fillText(out,64,64);
+        		bmd.addToWorld();
         		riddleNum++;
         		text.destroy();
         		text = game.add.text(300,30,'', {font: "35px Arial", fill: "#ffffff", wordWrap: true, wordWrapWidth: 600});
