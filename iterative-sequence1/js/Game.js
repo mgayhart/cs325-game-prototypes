@@ -26,13 +26,14 @@ GameStates.makeGame = function( game, shared ) {
     var enterKey;
     
     var strike = 0;
-   	
+   	var timer;
     
     function quitGame() {
 
         //  Here you should destroy anything you no longer need.
         //  Stop music, delete sprites, purge caches, free resources, all that good stuff.
 		text.destroy();
+		timer.destroy();
         //  Then let's go back to the main menu.
         game.state.start('MainMenu');
 
@@ -62,6 +63,9 @@ GameStates.makeGame = function( game, shared ) {
             
             //Call Key Press and allow input, so user can answer riddles.
             game.input.keyboard.addCallbacks(this, null, null, this.keyPress);
+            
+            timer = game.time.create(false);
+            timer.loop(5000, this.end(), this);
         },
     
         update: function () {
@@ -91,7 +95,8 @@ GameStates.makeGame = function( game, shared ) {
         		console.log("Not Quite, bud");
         		strike++;
         		if(strike === 3){
-        			this.end();
+        			text = game.add.text(400, 600, "Try Again!", {font: "50px Arial", fill: "#ffffff"});
+        			timer.start();
         		}
         		out = "";
         	}
@@ -103,7 +108,7 @@ GameStates.makeGame = function( game, shared ) {
         		text.destroy();
         		bmd.destroy();
         		text = game.add.text(400, 300, "You Win!", {font: "65px Arial", fill: "#ffffff"});
-        		game.time.events.add(5000, this.end(), this);
+        		timer.start();
         		console.log("Nailed it");
         		return;
         	}
