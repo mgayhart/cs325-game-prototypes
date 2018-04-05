@@ -97,7 +97,7 @@ GameStates.makeGame = function( game, shared ) {
         		text.destroy();
         		bmd.destroy();
         		text = game.add.text(400, 300, "You Win!", {font: "65px Arial", fill: "#ffffff"});
-        		game.time.events.add(5000, quitGame, this);
+        		game.time.events.add(5000, quitGame);
         		console.log("Nailed it");
         		return;
         	}
