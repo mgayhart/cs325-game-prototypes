@@ -30,7 +30,7 @@ GameStates.makeGame = function( game, shared ) {
 
         //  Here you should destroy anything you no longer need.
         //  Stop music, delete sprites, purge caches, free resources, all that good stuff.
-
+		text.destroy();
         //  Then let's go back to the main menu.
         game.state.start('MainMenu');
 
@@ -46,7 +46,7 @@ GameStates.makeGame = function( game, shared ) {
     		this.nextRiddle();
     		
     		//Bitmap Data, for the riddle area of text.
-            bmd = game.make.bitmapData(800, 200);
+            bmd = game.make.bitmapData(800, 500);
             bmd.context.font = '64px Arial';
             bmd.context.fillStyle = '#ffffff';
            // bmd.context.fillText(riddles[0], 64, 64);
@@ -83,7 +83,7 @@ GameStates.makeGame = function( game, shared ) {
         		out = "";
         		riddleNum++;
         		text.destroy();
-        		text = game.add.text(32,32,'', {font: "15px Arial", fill: "#ffffff"});
+        		text = game.add.text(32,32,'', {font: "35px Arial", fill: "#ffffff", wordWrap: true, wordWrapWidth: 450});
         		this.nextRiddle();
         	}
         	else{
