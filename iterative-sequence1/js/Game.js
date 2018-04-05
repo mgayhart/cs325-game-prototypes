@@ -12,7 +12,17 @@ GameStates.makeGame = function( game, shared ) {
     var riddleNum = 0;
     var solutions = ["mountain", "teeth", "wind", "egg", "time"];
     var out = "";
+    
+    var text;
+    var wordIndex = 0;
+    var riddleIndex = 0;
+    var wordDelay = 120;
+    var line = [];
+    
     var bmd;
+    var bmdInput;
+    var bmdComplete;
+    var bmdFail;
     var enterKey;
    	
     
@@ -32,12 +42,17 @@ GameStates.makeGame = function( game, shared ) {
     		//Add background, NEED TO EDIT THE IMAGE STILL!!
     		background = game.add.tileSprite(0,0,800,600, 'background');
     		
-    		//Bitmap Data, for the first area of text.
+    		text = game.add.text(32,32,'', {font: "15px Arial", fill: "#ffffff"});
+    		this.nextRiddle();
+    		
+    		//Bitmap Data, for the riddle area of text.
             bmd = game.make.bitmapData(800, 200);
             bmd.context.font = '64px Arial';
             bmd.context.fillStyle = '#ffffff';
             bmd.context.fillText(riddles[0], 64, 64);
             bmd.addToWorld();
+            
+            
             //Create an enter key, so as to end the input.
             enterKey = game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
             enterKey.onDown.add(this.solved, this);
@@ -67,6 +82,7 @@ GameStates.makeGame = function( game, shared ) {
         		console.log("Decent!");
         		out = "";
         		riddleNum++;
+        		this.nextRiddle();
         	}
         	else{
         		console.log("Not Quite, bud");
@@ -74,8 +90,26 @@ GameStates.makeGame = function( game, shared ) {
         	}
         },
         
-        printRiddle: function(riddle){
+        nextRiddle: function(){
+        	if(riddleNum === riddles.length){
+        		//Player won, go to win Scenario
+        		
+        	}
         	
+        	line = riddles[riddleNum].split(' ');
+        	wordIndex = 0;
+        	game.time.events.repeat(wordDelay, line.length, this.nextWord, this);
+        	
+        },
+        
+        nextWord: function(){
+        	text.text = text.text.concat(line[wordIndex] + " ");
+        	wordIndex++;
+        	
+        	if(wordIndex === line.length){
+        	
+        	}
+        
         }
     };
 };
