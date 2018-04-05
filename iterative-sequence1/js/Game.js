@@ -79,12 +79,12 @@ GameStates.makeGame = function( game, shared ) {
         solved(){
         	if(out === solutions[riddleNum]){
         		console.log("Decent!");
-        		out = "";
+        		out = " ";
         		bmd.context.fillText(out,64,64);
         		bmd.addToWorld();
         		riddleNum++;
         		text.destroy();
-        		text = game.add.text(300,30,'', {font: "35px Arial", fill: "#ffffff", wordWrap: true, wordWrapWidth: 600});
+        		text = game.add.text(30,300,'', {font: "35px Arial", fill: "#ffffff", wordWrap: true, wordWrapWidth: 600});
         		this.nextRiddle();
         	}
         	else{
