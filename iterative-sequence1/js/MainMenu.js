@@ -4,21 +4,7 @@ GameStates.makeMainMenu = function( game, shared ) {
 
 	var music = null;
 	var playButton = null;
-	var content = ["Welcome to a game of riddles!",
-		"if you can answer all of the riddles you will escape,",
-		"if you answer incorrectly, but three times you will not.",
-		"Type your answer and press enter,",
-		"If you get the riddle correct you will see a new riddle,",
-		"Make too many mistakes and your game is over.",
-		"Good luck, click below to begin..."];
-		
-	var line = [];
-
-	var wordIndex = 0;
-	var lineIndex = 0;
-
-	var wordDelay = 120;
-	var lineDelay = 400;
+	var text;
 	    
     function startGame(pointer) {
 
