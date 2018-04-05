@@ -64,18 +64,13 @@ GameStates.makeGame = function( game, shared ) {
         
         solved(){
         	if(out === solutions[riddleNum]){
-        		out = "Decent!";
-        		bmd.context.fillText(out, 64, 64);
+        		console.log("Decent!");
         		out = "";
-        		bmd.context.fillText(out, 64, 64);
         		riddleNum++;
         	}
         	else{
         		console.log("Not Quite, bud");
-        		out = "Try again, bud";
-        		bmd.context.fillText(out,64,64);
         		out = "";
-        		bmd.context.fillText(out,64,64);
         	}
         },
         
