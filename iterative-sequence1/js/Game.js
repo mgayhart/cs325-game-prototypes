@@ -103,7 +103,7 @@ GameStates.makeGame = function( game, shared ) {
         			stateText.visible = true;
 
         			//the "click to menu" handler
-        			game.input.onTap.addOnce(this.quitGame,this);
+        			game.input.onTap.addOnce(this.end ,this);
         			return;
         		}
         		out = "";
@@ -119,7 +119,7 @@ GameStates.makeGame = function( game, shared ) {
         		stateText.visible = true;
 
         		//the "click to menu" handler
-        		game.input.onTap.addOnce(this.quitGame,this);
+        		game.input.onTap.addOnce(this.end,this);
         		return;
         	}
         	else{
