@@ -19,6 +19,7 @@ GameStates.makeMainMenu = function( game, shared ) {
 
 	var wordDelay = 120;
 	var lineDelay = 400;
+	var text;
 	    
     function startGame(pointer) {
 
