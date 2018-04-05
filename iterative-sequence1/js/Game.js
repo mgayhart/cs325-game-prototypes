@@ -74,7 +74,7 @@ GameStates.makeGame = function( game, shared ) {
         	out = out + char;
         	
         	bmd.context.fillText(out, x, 64);
-        	bmd.addToWorld();
+        	//bmd.addToWorld();
         },
         
         solved(){
