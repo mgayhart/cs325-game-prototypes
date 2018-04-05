@@ -42,11 +42,11 @@ GameStates.makeGame = function( game, shared ) {
     		//Add background, NEED TO EDIT THE IMAGE STILL!!
     		background = game.add.tileSprite(0,0,800,600, 'background');
     		
-    		text = game.add.text(32,32,'', {font: "15px Arial", fill: "#ffffff"});
+    		text = game.add.text(32,32,'', {font: "35px Arial", fill: "#ffffff"});
     		this.nextRiddle();
     		
     		//Bitmap Data, for the riddle area of text.
-            bmd = game.make.bitmapData(300, 500);
+            bmd = game.make.bitmapData(800, 0);
             bmd.context.font = '64px Arial';
             bmd.context.fillStyle = '#ffffff';
            // bmd.context.fillText(riddles[0], 64, 64);
