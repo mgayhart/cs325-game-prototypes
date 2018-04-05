@@ -42,7 +42,7 @@ GameStates.makeGame = function( game, shared ) {
     		//Add background, NEED TO EDIT THE IMAGE STILL!!
     		background = game.add.tileSprite(0,0,800,600, 'background');
     		
-    		text = game.add.text(32,32,'', {font: "35px Arial", fill: "#ffffff"});
+    		text = game.add.text(30,300,'', {font: "35px Arial", fill: "#ffffff"});
     		this.nextRiddle();
     		
     		//Bitmap Data, for the riddle area of text.
@@ -74,7 +74,7 @@ GameStates.makeGame = function( game, shared ) {
         	out = out + char;
         	
         	bmd.context.fillText(out, x, 64);
-        	//bmd.addToWorld();
+        	bmd.addToWorld();
         },
         
         solved(){
@@ -83,7 +83,7 @@ GameStates.makeGame = function( game, shared ) {
         		out = "";
         		riddleNum++;
         		text.destroy();
-        		text = game.add.text(32,32,'', {font: "35px Arial", fill: "#ffffff", wordWrap: true, wordWrapWidth: 600});
+        		text = game.add.text(300,30,'', {font: "35px Arial", fill: "#ffffff", wordWrap: true, wordWrapWidth: 600});
         		this.nextRiddle();
         	}
         	else{
