@@ -2,7 +2,15 @@
 
 GameStates.makeGame = function( game, shared ) {
     var background;
-    var word = "teeth";
+    var riddles = [
+    	"What has roots as nobody sees, Is taller than trees, Up, up it goes, And yet never grows?",
+    	"Thirty white horses on a red hill, first they champ, then they stamp, then they stand still.",
+    	"Voiceless it cries, Wingless flutters, Toothless bites, Mouthless mutters.",
+    	"A box without hinges, key, or lid, Yet golden treasure inside is hid.",
+    	"This thing all things devours: Birds, beasts, trees, flowers; Gnaws iron, bites steel; Grinds hard stones to meal; Slays king, ruins town, And beats high mountain down."
+    	];
+    var riddleNum = 0;
+    var solutions = ["mountain", "teeth", "wind", "egg", "time"];
     var out = "";
     var bmd;
     var enterKey;
@@ -28,7 +36,7 @@ GameStates.makeGame = function( game, shared ) {
             bmd = game.make.bitmapData(800, 200);
             bmd.context.font = '64px Arial';
             bmd.context.fillStyle = '#ffffff';
-            bmd.context.fillText(word, 64, 64);
+            bmd.context.fillText(riddles[0], 64, 64);
             bmd.addToWorld();
             //Create an enter key, so as to end the input.
             enterKey = game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
@@ -47,9 +55,6 @@ GameStates.makeGame = function( game, shared ) {
         
         keyPress: function(char){
         	bmd.cls();
-        	if(char === 'enter'){
-        		char = 'f';
-        	}
         	var x = 64;
         	out = out + char;
         	
@@ -58,13 +63,24 @@ GameStates.makeGame = function( game, shared ) {
         },
         
         solved(){
-        	if(out === word){
-        		console.log("YOU DID IT");
+        	if(out === solutions[riddleNum]){
+        		out = "Decent!";
+        		bmd.context.fillText(out, 64, 64);
         		out = "";
+        		bmd.context.fillText(out, 64, 64);
+        		riddleNum++;
         	}
         	else{
         		console.log("Not Quite, bud");
+        		out = "Try again, bud";
+        		bmd.context.fillText(out,64,64);
+        		out = "";
+        		bmd.context.fillText(out,64,64);
         	}
+        },
+        
+        printRiddle: function(riddle){
+        	
         }
     };
 };
