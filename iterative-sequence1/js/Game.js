@@ -65,7 +65,7 @@ GameStates.makeGame = function( game, shared ) {
             //Call Key Press and allow input, so user can answer riddles.
             game.input.keyboard.addCallbacks(this, null, null, this.keyPress);
             
-            stateText = game.add.text(game.world.centerX,game.world.centerY,' ', { font: '84px Arial', fill: '#fff' });
+            stateText = game.add.text(game.world.centerX,game.world.centerY,' ', { font: '50px Arial', fill: '#19de65' });
    	 		stateText.anchor.setTo(0.5, 0.5);
     		stateText.visible = false;
            
@@ -99,6 +99,8 @@ GameStates.makeGame = function( game, shared ) {
         		console.log("Not Quite, bud");
         		strike++;
         		if(strike === 3){
+        			text.destroy();
+        			bmd.cls();
         			stateText.text=" You Lose, try again. \n Click to return to menu";
         			stateText.visible = true;
 
@@ -114,7 +116,7 @@ GameStates.makeGame = function( game, shared ) {
         	if(riddleNum === riddles.length){
         		//Player won, go to win Scenario
         		text.destroy();
-        		bmd.destroy();
+        		bmd.cls();
         		stateText.text=" You Win! \n Click to return to menu";
         		stateText.visible = true;
 
