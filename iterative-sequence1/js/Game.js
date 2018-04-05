@@ -46,7 +46,7 @@ GameStates.makeGame = function( game, shared ) {
     		this.nextRiddle();
     		
     		//Bitmap Data, for the riddle area of text.
-            bmd = game.make.bitmapData(800, 500);
+            bmd = game.make.bitmapData(300, 500);
             bmd.context.font = '64px Arial';
             bmd.context.fillStyle = '#ffffff';
            // bmd.context.fillText(riddles[0], 64, 64);
@@ -83,7 +83,7 @@ GameStates.makeGame = function( game, shared ) {
         		out = "";
         		riddleNum++;
         		text.destroy();
-        		text = game.add.text(32,32,'', {font: "35px Arial", fill: "#ffffff", wordWrap: true, wordWrapWidth: 450});
+        		text = game.add.text(32,32,'', {font: "35px Arial", fill: "#ffffff", wordWrap: true, wordWrapWidth: 600});
         		this.nextRiddle();
         	}
         	else{
