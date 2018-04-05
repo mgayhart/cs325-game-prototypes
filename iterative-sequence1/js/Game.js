@@ -94,13 +94,14 @@ GameStates.makeGame = function( game, shared ) {
         nextRiddle: function(){
         	if(riddleNum === riddles.length){
         		//Player won, go to win Scenario
-        		
+        		console.log("Nailed it");
+        		return;
         	}
-        	
-        	line = riddles[riddleNum].split(' ');
-        	wordIndex = 0;
-        	game.time.events.repeat(wordDelay, line.length, this.nextWord, this);
-        	
+        	else{
+        		line = riddles[riddleNum].split(' ');
+        		wordIndex = 0;
+        		game.time.events.repeat(wordDelay, line.length, this.nextWord, this);
+        	}
         },
         
         nextWord: function(){
