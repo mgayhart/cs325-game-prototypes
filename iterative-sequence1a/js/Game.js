@@ -28,6 +28,14 @@ GameStates.makeGame = function( game, shared ) {
     var strike = 0;
    	var stateText;
    	
+   	var wind = null;
+   	var mountain = null;
+   	
+   	var soft = null;
+   	var scrumptious = null;
+   	var tasty = null;
+   	
+   	
    	var x1;
    	var x2;
    	var x3;
@@ -73,12 +81,12 @@ GameStates.makeGame = function( game, shared ) {
     		stateText.visible = false;
            
            //set up audio
-           var wind = game.add.audio('wind');
-           var mountain = game.add.audio('mountain');
+           wind = game.add.audio('wind');
+           mountain = game.add.audio('mountain');
            
-           var scrumptious = game.add.audio('scrumptious');
-           var tasty = game.add.audio('tasty');
-           var soft = game.add.audio('soft');
+           scrumptious = game.add.audio('scrumptious');
+           tasty = game.add.audio('tasty');
+           soft = game.add.audio('soft');
            
            
         },
@@ -110,16 +118,16 @@ GameStates.makeGame = function( game, shared ) {
         		//Play gollum clip[strike]
         		strike++;
         		if(strike === 1){
-        			soft.play();
+        			this.soft.play();
         			x1 = game.add.sprite('x', 300, 250);
         		}
         		if(strike === 2){
-        			tasty.play();
+        			this.tasty.play();
         			x2 = game.add.sprite('x', 375, 250);
         		}
         		if(strike === 3){
         			x3 = game.add.sprite('x', 450, 250);
-        			scrumptious.play();
+        			this.scrumptious.play();
         			text.destroy();
         			stateText.text=" You Lose, try again. \n Click to return to menu";
         			stateText.visible = true;
@@ -145,10 +153,10 @@ GameStates.makeGame = function( game, shared ) {
         	}
         	else{
         		if(riddleNum === 0){
-        			mountain.play();
+        			this.mountain.play();
         		}
         		if(riddleNum === 2){
-        			wind.play();
+        			this.wind.play();
         		}
         		line = riddles[riddleNum].split(' ');
         		wordIndex = 0;
