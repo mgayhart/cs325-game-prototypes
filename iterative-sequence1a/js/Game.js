@@ -80,15 +80,6 @@ GameStates.makeGame = function( game, shared ) {
    	 		stateText.anchor.setTo(0.5, 0.5);
     		stateText.visible = false;
            
-           //set up audio
-           wind = game.add.audio('wind');
-           mountain = game.add.audio('mountain');
-           mountain.play();
-           
-           scrumptious = game.add.audio('scrumptious');
-           tasty = game.add.audio('tasty');
-           soft = game.add.audio('soft');
-           
            
         },
     
@@ -119,16 +110,19 @@ GameStates.makeGame = function( game, shared ) {
         		//Play gollum clip[strike]
         		strike++;
         		if(strike === 1){
-        			this.soft.play();
+        			soft = game.add.audio('soft');
+        			soft.play();
         			x1 = game.add.sprite('x', 300, 250);
         		}
         		if(strike === 2){
-        			this.tasty.play();
+        			tasty = game.add.audio('tasty');
+        			tasty.play();
         			x2 = game.add.sprite('x', 375, 250);
         		}
         		if(strike === 3){
         			x3 = game.add.sprite('x', 450, 250);
-        			this.scrumptious.play();
+        			scrumptious = game.add.audio('scrumptious');
+        			scrumptious.play();
         			text.destroy();
         			stateText.text=" You Lose, try again. \n Click to return to menu";
         			stateText.visible = true;
@@ -154,10 +148,12 @@ GameStates.makeGame = function( game, shared ) {
         	}
         	else{
         		if(riddleNum === 0){
-        			//this.mountain.play();
+        			mountain = game.add.audio('mountain');
+           			mountain.play();
         		}
         		if(riddleNum === 2){
-        			//this.wind.play();
+        			wind = game.add.audio('wind');
+        			wind.play();	
         		}
         		line = riddles[riddleNum].split(' ');
         		wordIndex = 0;
