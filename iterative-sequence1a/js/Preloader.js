@@ -25,19 +25,19 @@ GameStates.makePreloader = function( game ) {
             //	As this is just a Project Template I've not provided these assets, swap them for your own.
             game.load.image('titlePage', 'assets/background.png');
             game.load.atlas('playButton', 'assets/play_button.png', 'assets/play_button.json');
-            game.load.audio('titleMusic', ['assets/Gollum.mp3']);
+            game.load.audio('titleMusic', ['assets/audio/Gollum.mp3','assets/audio/Gollum.ogg']);
             //	+ lots of other required assets here
-            game.load.image('background', 'assets/background.jpg');
+            game.load.image('background', 'assets/background.png');
             
             //Riddle Audio
-            game.load.audio('wind', ['assets/wind.mp3']);
-            game.load.audio('mountain', ['assets/mountain.mp3']);
+            game.load.audio('wind', ['assets/audio/wind.mp3','assets/audio/wind.ogg']);
+            game.load.audio('mountain', ['assets/audio/mountain.mp3','assets/audio/mountain.ogg']);
             
             //Gollum Sounds Negative
-            game.load.audio('soft', ['assets/soft.mp3']);
-            game.load.audio('eat', ['assets/eatsit.mp3']);
-            game.load.audio('scrumptious', ['assets/scrumptious.mp3']);
-            game.load.audio('tasty', ['assets/tasty.mp3']);
+            game.load.audio('soft', ['assets/audio/soft.mp3','assets/audio/soft.ogg']);
+            game.load.audio('eat', ['assets/audio/eatsit.mp3','assets/audio/eatsit.ogg']);
+            game.load.audio('scrumptious', ['assets/audio/scrumptious.mp3','assets/audio/scrumptious.ogg']);
+            game.load.audio('tasty', ['assets/audio/tasty.mp3','assets/audio/tasty.ogg']);
             
             game.load.image('x', 'assets/x.png');
         },
