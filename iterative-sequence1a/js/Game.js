@@ -28,6 +28,17 @@ GameStates.makeGame = function( game, shared ) {
     var strike = 0;
    	var stateText;
    	
+   	var wind = null;
+   	var mountain = null;
+   	
+   	var soft = null;
+   	var scrumptious = null;
+   	var tasty = null;
+   	
+   	
+   	var x1;
+   	var x2;
+   	var x3;
     
     function quitGame() {
 
@@ -69,6 +80,14 @@ GameStates.makeGame = function( game, shared ) {
    	 		stateText.anchor.setTo(0.5, 0.5);
     		stateText.visible = false;
            
+           //set up audio
+           wind = game.add.audio('wind');
+           mountain = game.add.audio('mountain');
+           
+           scrumptious = game.add.audio('scrumptious');
+           tasty = game.add.audio('tasty');
+           soft = game.add.audio('soft');
+           
            
         },
     
@@ -98,7 +117,17 @@ GameStates.makeGame = function( game, shared ) {
         	else{
         		//Play gollum clip[strike]
         		strike++;
+        		if(strike === 1){
+        			soft.play();
+        			x1 = game.add.sprite('x', 300, 250);
+        		}
+        		if(strike === 2){
+        			tasty.play();
+        			x2 = game.add.sprite('x', 375, 250);
+        		}
         		if(strike === 3){
+        			x3 = game.add.sprite('x', 450, 250);
+        			scrumptious.play();
         			text.destroy();
         			stateText.text=" You Lose, try again. \n Click to return to menu";
         			stateText.visible = true;
@@ -124,10 +153,10 @@ GameStates.makeGame = function( game, shared ) {
         	}
         	else{
         		if(riddleNum === 0){
-        			//Play mountain clip
+        			mountain.play();
         		}
         		if(riddleNum === 2){
-        			//play wind clip
+        			wind.play();
         		}
         		line = riddles[riddleNum].split(' ');
         		wordIndex = 0;
