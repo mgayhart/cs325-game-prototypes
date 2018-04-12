@@ -28,14 +28,6 @@ GameStates.makeGame = function( game, shared ) {
     var strike = 0;
    	var stateText;
    	
-   	var wind = null;
-   	var mountain = null;
-   	
-   	var soft = null;
-   	var scrumptious = null;
-   	var tasty = null;
-   	
-   	
    	var x1;
    	var x2;
    	var x3;
@@ -81,12 +73,12 @@ GameStates.makeGame = function( game, shared ) {
     		stateText.visible = false;
            
            //set up audio
-           wind = game.add.audio('wind');
-           mountain = game.add.audio('mountain');
+           var wind = game.add.audio('wind');
+           var mountain = game.add.audio('mountain');
            
-           scrumptious = game.add.audio('scrumptious');
-           tasty = game.add.audio('tasty');
-           soft = game.add.audio('soft');
+           var scrumptious = game.add.audio('scrumptious');
+           var tasty = game.add.audio('tasty');
+           var soft = game.add.audio('soft');
            
            
         },
