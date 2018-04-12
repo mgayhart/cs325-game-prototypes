@@ -83,6 +83,7 @@ GameStates.makeGame = function( game, shared ) {
            //set up audio
            wind = game.add.audio('wind');
            mountain = game.add.audio('mountain');
+           mountain.play();
            
            scrumptious = game.add.audio('scrumptious');
            tasty = game.add.audio('tasty');
@@ -153,10 +154,10 @@ GameStates.makeGame = function( game, shared ) {
         	}
         	else{
         		if(riddleNum === 0){
-        			this.mountain.play();
+        			//this.mountain.play();
         		}
         		if(riddleNum === 2){
-        			this.wind.play();
+        			//this.wind.play();
         		}
         		line = riddles[riddleNum].split(' ');
         		wordIndex = 0;
