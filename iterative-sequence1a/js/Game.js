@@ -112,15 +112,15 @@ GameStates.makeGame = function( game, shared ) {
         		if(strike === 1){
         			soft = game.add.audio('soft');
         			soft.play();
-        			x1 = game.add.sprite('x', 300, 250);
+        			x1 = game.add.sprite(300, 250, 'strk');
         		}
         		if(strike === 2){
         			tasty = game.add.audio('tasty');
         			tasty.play();
-        			x2 = game.add.sprite('x', 375, 250);
+        			x2 = game.add.sprite(375, 250, 'strk');
         		}
         		if(strike === 3){
-        			x3 = game.add.sprite('x', 450, 250);
+        			x3 = game.add.sprite(450, 250, 'strk');
         			scrumptious = game.add.audio('scrumptious');
         			scrumptious.play();
         			text.destroy();

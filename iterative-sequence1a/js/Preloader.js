@@ -39,7 +39,7 @@ GameStates.makePreloader = function( game ) {
             game.load.audio('scrumptious', ['assets/audio/scrumptious.mp3','assets/audio/scrumptious.ogg']);
             game.load.audio('tasty', ['assets/audio/tasty.mp3','assets/audio/tasty.ogg']);
             
-            game.load.image('x', 'assets/x.png');
+            game.load.image('strk', 'assets/x.png');
         },
     
         create: function () {
