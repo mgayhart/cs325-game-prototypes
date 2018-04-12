@@ -46,6 +46,7 @@ GameStates.makeGame = function( game, shared ) {
         //  Stop music, delete sprites, purge caches, free resources, all that good stuff.
 		text.destroy();
 		bmd.destroy();
+		strikes = 0;
         //  Then let's go back to the main menu.
         game.state.start('MainMenu');
 
@@ -112,15 +113,15 @@ GameStates.makeGame = function( game, shared ) {
         		if(strike === 1){
         			soft = game.add.audio('soft');
         			soft.play();
-        			x1 = game.add.sprite(300, 250, 'strk');
+        			x1 = game.add.sprite(450, 0, 'strk');
         		}
         		if(strike === 2){
         			tasty = game.add.audio('tasty');
         			tasty.play();
-        			x2 = game.add.sprite(375, 250, 'strk');
+        			x2 = game.add.sprite(525, 0, 'strk');
         		}
         		if(strike === 3){
-        			x3 = game.add.sprite(450, 250, 'strk');
+        			x3 = game.add.sprite(600, 0, 'strk');
         			scrumptious = game.add.audio('scrumptious');
         			scrumptious.play();
         			text.destroy();
