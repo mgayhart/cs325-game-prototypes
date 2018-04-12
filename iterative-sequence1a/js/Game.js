@@ -46,7 +46,7 @@ GameStates.makeGame = function( game, shared ) {
         //  Stop music, delete sprites, purge caches, free resources, all that good stuff.
 		text.destroy();
 		bmd.destroy();
-		strikes = 0;
+		strike = 0;
         //  Then let's go back to the main menu.
         game.state.start('MainMenu');
 
