@@ -31,7 +31,7 @@ window.onload = function() {
     	bgLayer = map.createLayer('Background');
     	wallsLayer = map.createLayer('Walls');
     	
-    	wallsLayer.resizeWorld();
+    	//wallsLayer.resizeWorld();
     	
     	//bg = game.add.tileSprite(0, 0, 800, 600, 'background');
     	//bg.fixedToCamera = true;
