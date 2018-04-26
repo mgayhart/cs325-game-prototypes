@@ -57,7 +57,7 @@ window.onload = function() {
     
     function update() {
 		game.physics.arcade.collide(player, wallsLayer);
-		
+		game.physics.arcade.TILE_BIAS = 40;
 		player.body.velocity.x = 0;
 		
 		if(cursors.left.isDown){
