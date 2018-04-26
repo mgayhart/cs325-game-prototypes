@@ -42,8 +42,7 @@ window.onload = function() {
     	
     	player = game.add.sprite(32,96, 'soldier');
     	game.physics.enable(player, Phaser.Physics.ARCADE);
-    	player.body.setSize(19,32, 0, 0);
-    	player.body.tilePadding.set(32,32);
+    	
     	player.body.collideWorldBounds = true;
     	
     	cursors = game.input.keyboard.createCursorKeys();
@@ -59,7 +58,7 @@ window.onload = function() {
     
     function update() {
 		game.physics.arcade.collide(player, wallsLayer);
-		game.physics.arcade.TILE_BIAS = 40;
+		
 		player.body.velocity.x = 0;
 		
 		if(cursors.left.isDown){
