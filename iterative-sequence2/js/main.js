@@ -43,6 +43,7 @@ window.onload = function() {
     	player = game.add.sprite(32,96, 'soldier');
     	game.physics.enable(player, Phaser.Physics.ARCADE);
     	player.body.setSize(19,32, 0, 0);
+    	player.body.tilePadding.set(32,32);
     	
     	cursors = game.input.keyboard.createCursorKeys();
     	
