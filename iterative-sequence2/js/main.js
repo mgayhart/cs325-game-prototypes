@@ -25,9 +25,11 @@ window.onload = function() {
     
     function create() {
     	map = game.add.tilemap('map');
-    	map.addTilesetImage('Jungle', 'mapTiles');
+    	map.addTilesetImage('mapTiles');
     	bgLayer = map.createLayer('Background');
     	wallsLayer = map.createLayer('Walls');
+    	
+    	wallsLayer.resizeWorld();
     	map.setCollisionByExclusion([654, 370]);
     	bg = game.add.tileSprite(0, 0, 800, 600, 'background');
     	bg.fixedToCamera = true;
