@@ -16,6 +16,7 @@ window.onload = function() {
        game.load.image('Jungle', 'assets/jungleTileset.png', 16, 16);
        game.load.tilemap('map', 'assets/map.json', null, Phaser.Tilemap.TILED_JSON);
        game.load.image('background', 'assets/bg.png');
+       game.load.image('soldier', 'assets/soldier.png');
     }
     var map;
     var bgLayer;
@@ -30,6 +31,8 @@ window.onload = function() {
     	
     	bgLayer = map.createLayer('Background');
     	wallsLayer = map.createLayer('Walls');
+    	
+    	player = game.add.sprite(32,32, 'soldier');
     	
     	//wallsLayer.resizeWorld();
     	
