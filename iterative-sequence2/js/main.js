@@ -13,16 +13,23 @@ window.onload = function() {
     var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
     
     function preload() {
-       
+       game.load.image('mapTiles', 'assets/jungleTileset.png');
+       game.load.tilemap('map', 'assets/map.json', null, Phaser.Tilemap.TILED_JSON);
     }
-    
-    var bouncy;
+    var map;
+    var bgLayer;
+    var wallsLayer;
+    var player;
     
     function create() {
-    
+    	map = game.add.tilemap('map');
+    	map.addTilesetImage('Jungle', 'mapTiles');
+    	bgLayer = map.createLayer('Background');
+    	wallsLayer = map.createLayer('walls');
+    	map.setCollisionByExclusion([654, 370]);
     }
     
     function update() {
-
+		game.physics.arcade.collide(player, wallsLayer);
     }
 };
