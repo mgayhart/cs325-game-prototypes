@@ -32,7 +32,7 @@ window.onload = function() {
 		
 		
     	map = game.add.tilemap('map');
-    	map.addTilesetImage('Jungle', 'Jungle');
+    	map.addTilesetImage('Jungle');
     	map.setCollisionByExclusion([654, 370]);
     	
     	bgLayer = map.createLayer('Background');
@@ -44,6 +44,7 @@ window.onload = function() {
     	game.physics.enable(player, Phaser.Physics.ARCADE);
     	player.body.setSize(19,32, 0, 0);
     	player.body.tilePadding.set(32,32);
+    	player.body.collideWorldBounds = true;
     	
     	cursors = game.input.keyboard.createCursorKeys();
     	
