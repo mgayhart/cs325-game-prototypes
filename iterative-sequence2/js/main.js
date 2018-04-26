@@ -38,7 +38,7 @@ window.onload = function() {
     	
     	bgLayer = map.createLayer('Background');
     	wallsLayer = map.createLayer('Walls');
-    	game.stage.setSize();
+    	
     	
     	
     	player = game.add.sprite(32,96, 'soldier');
