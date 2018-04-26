@@ -34,7 +34,7 @@ window.onload = function() {
     	
     	player = game.add.sprite(32,32, 'soldier');
     	
-    	//wallsLayer.resizeWorld();
+    	wallsLayer.resizeWorld();
     	
     	//bg = game.add.tileSprite(0, 0, 800, 600, 'background');
     	//bg.fixedToCamera = true;
