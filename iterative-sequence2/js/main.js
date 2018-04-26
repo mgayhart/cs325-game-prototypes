@@ -15,7 +15,7 @@ window.onload = function() {
     function preload() {
        game.load.image('mapTiles', 'assets/jungleTileset.png');
        game.load.tilemap('map', 'assets/map.json', null, Phaser.Tilemap.TILED_JSON);
-       game.load.image('background', 'assets/background.png');
+       game.load.image('background', 'assets/bg.png');
     }
     var map;
     var bgLayer;
