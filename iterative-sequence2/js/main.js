@@ -25,6 +25,8 @@ window.onload = function() {
     var bg;
     
     function create() {
+    	game.physics.startSystem(Phaser.Physics.ARCADE);
+    
     	map = game.add.tilemap('map');
     	map.addTilesetImage('Jungle', 'Jungle');
     	map.setCollisionByExclusion([654, 370]);
@@ -34,7 +36,10 @@ window.onload = function() {
     	
     	player = game.add.sprite(32,32, 'soldier');
     	
-    	wallsLayer.resizeWorld();
+    	
+    	game.world.setBounds(0, 0, 5000, 5000);
+    	game.camera.follow(player);
+    	//wallsLayer.resizeWorld();
     	
     	//bg = game.add.tileSprite(0, 0, 800, 600, 'background');
     	//bg.fixedToCamera = true;
