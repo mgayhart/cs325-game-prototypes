@@ -15,11 +15,13 @@ window.onload = function() {
     function preload() {
        game.load.image('mapTiles', 'assets/jungleTileset.png');
        game.load.tilemap('map', 'assets/map.json', null, Phaser.Tilemap.TILED_JSON);
+       game.load.image('background', 'assets/background.png');
     }
     var map;
     var bgLayer;
     var wallsLayer;
     var player;
+    var bg;
     
     function create() {
     	map = game.add.tilemap('map');
@@ -27,6 +29,8 @@ window.onload = function() {
     	bgLayer = map.createLayer('Background');
     	wallsLayer = map.createLayer('walls');
     	map.setCollisionByExclusion([654, 370]);
+    	bg = game.add.tileSprite(0, 0, 800, 600, 'background');
+    	bg.fixedToCamera = true;
     }
     
     function update() {
