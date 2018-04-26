@@ -59,7 +59,7 @@ window.onload = function() {
 		if(cursors.left.isDown){
 			player.body.velocity.x = -150;
 		}
-		else if(cursors.right.isDown)P{
+		else if(cursors.right.isDown){
 			player.body.velocity.x = 150;
 		}
 		if(cursors.up.isDown && player.body.onFloor() && game.time.now > jumpTimer){
