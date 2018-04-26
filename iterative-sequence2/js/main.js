@@ -13,7 +13,7 @@ window.onload = function() {
     var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
     
     function preload() {
-       game.load.image('mapTiles', 'assets/jungleTileset.png');
+       game.load.image('Jungle', 'assets/jungleTileset.png');
        game.load.tilemap('map', 'assets/map.json', null, Phaser.Tilemap.TILED_JSON);
        game.load.image('background', 'assets/bg.png');
     }
@@ -25,7 +25,7 @@ window.onload = function() {
     
     function create() {
     	map = game.add.tilemap('map');
-    	map.addTilesetImage('mapTiles');
+    	map.addTilesetImage('Jungle');
     	bgLayer = map.createLayer('Background');
     	wallsLayer = map.createLayer('Walls');
     	
