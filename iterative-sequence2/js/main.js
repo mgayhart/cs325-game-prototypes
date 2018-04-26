@@ -34,7 +34,7 @@ window.onload = function() {
     	wallsLayer.resizeWorld();
     	
     	bg = game.add.tileSprite(0, 0, 800, 600, 'background');
-    	bg.fixedToCamera = true;
+    	//bg.fixedToCamera = true;
     }
     
     function update() {
