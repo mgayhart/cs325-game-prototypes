@@ -33,7 +33,8 @@ window.onload = function() {
 		
     	map = game.add.tilemap('map');
     	map.addTilesetImage('Jungle');
-    	map.setCollisionByExclusion([654, 370]);
+    	//map.setCollisionByExclusion([654, 370]);
+    	map.setCollisionByExclusion([]);
     	
     	bgLayer = map.createLayer('Background');
     	wallsLayer = map.createLayer('Walls');
