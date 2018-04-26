@@ -34,11 +34,12 @@ window.onload = function() {
     	map.addTilesetImage('Jungle', 'Jungle');
     	map.setCollisionByExclusion([654, 370]);
     	
-    	bgLayer = map.createLayer('Background');
+    	//bgLayer = map.createLayer('Background');
     	wallsLayer = map.createLayer('Walls');
     	
     	player = game.add.sprite(32,96, 'soldier');
     	game.physics.enable(player, Phaser.Physics.ARCADE);
+    	player.body.setSize(19,32, 0, 0);
     	
     	cursors = game.input.keyboard.createCursorKeys();
     	
@@ -52,7 +53,6 @@ window.onload = function() {
     }
     
     function update() {
-		game.physics.arcade.collide(player, wallsLayer);
 		game.physics.arcade.collide(player, wallsLayer);
 		
 		player.body.velocity.x = 0;
