@@ -43,16 +43,16 @@ window.onload = function() {
     	cursors = game.input.keyboard.createCursorKeys();
     	
     	
-    	game.world.setBounds(0, 0, 5000, 5000);
+    	
     	game.camera.follow(player);
-    	//wallsLayer.resizeWorld();
+    	wallsLayer.resizeWorld();
     	
     	//bg = game.add.tileSprite(0, 0, 800, 600, 'background');
     	//bg.fixedToCamera = true;
     }
     
     function update() {
-		//game.physics.arcade.collide(player, wallsLayer);
+		game.physics.arcade.collide(player, wallsLayer);
 		game.physics.arcade.collide(player, wallsLayer);
 		
 		player.body.velocity.x = 0;
