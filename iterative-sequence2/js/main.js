@@ -38,6 +38,7 @@ window.onload = function() {
     	wallsLayer = map.createLayer('Walls');
     	
     	player = game.add.sprite(32,96, 'soldier');
+    	game.physics.enable(player, Phaser.Physics.ARCADE);
     	
     	cursors = game.input.keyboard.createCursorKeys();
     	
