@@ -30,12 +30,16 @@ window.onload = function() {
     	game.physics.startSystem(Phaser.Physics.ARCADE);
 		game.physics.arcade.gravity.y = 250;
 		
+		game.camera.setSize(250, 150);
+		
     	map = game.add.tilemap('map');
     	map.addTilesetImage('Jungle', 'Jungle');
     	map.setCollisionByExclusion([654, 370]);
     	
-    	//bgLayer = map.createLayer('Background');
+    	bgLayer = map.createLayer('Background');
     	wallsLayer = map.createLayer('Walls');
+    	game.stage.setSize();
+    	
     	
     	player = game.add.sprite(32,96, 'soldier');
     	game.physics.enable(player, Phaser.Physics.ARCADE);
