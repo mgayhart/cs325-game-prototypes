@@ -13,7 +13,7 @@ window.onload = function() {
     var game = new Phaser.Game( 800, 600, Phaser.CANVAS, 'game', { preload: preload, create: create, update: update } );
     
     function preload() {
-       game.load.image('Jungle', 'assets/jungleTileset.png');
+       game.load.image('Jungle', 'assets/jungleTileset.png', 16, 16);
        game.load.tilemap('map', 'assets/map.json', null, Phaser.Tilemap.TILED_JSON);
        game.load.image('background', 'assets/bg.png');
     }
@@ -25,12 +25,14 @@ window.onload = function() {
     
     function create() {
     	map = game.add.tilemap('map');
-    	map.addTilesetImage('Jungle');
+    	map.addTilesetImage('Jungle', 'Jungle');
+    	map.setCollisionByExclusion([654, 370]);
+    	
     	bgLayer = map.createLayer('Background');
     	wallsLayer = map.createLayer('Walls');
     	
     	wallsLayer.resizeWorld();
-    	map.setCollisionByExclusion([654, 370]);
+    	
     	bg = game.add.tileSprite(0, 0, 800, 600, 'background');
     	bg.fixedToCamera = true;
     }
