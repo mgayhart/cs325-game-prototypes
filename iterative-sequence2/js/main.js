@@ -27,13 +27,13 @@ window.onload = function() {
     	map = game.add.tilemap('map');
     	map.addTilesetImage('Jungle', 'mapTiles');
     	bgLayer = map.createLayer('Background');
-    	wallsLayer = map.createLayer('walls');
+    	wallsLayer = map.createLayer('Walls');
     	map.setCollisionByExclusion([654, 370]);
     	bg = game.add.tileSprite(0, 0, 800, 600, 'background');
     	bg.fixedToCamera = true;
     }
     
     function update() {
-		game.physics.arcade.collide(player, wallsLayer);
+		//game.physics.arcade.collide(player, wallsLayer);
     }
 };
