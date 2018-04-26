@@ -23,10 +23,13 @@ window.onload = function() {
     var wallsLayer;
     var player;
     var bg;
+    var cursors;
+    var jumpTimer = 0;
     
     function create() {
     	game.physics.startSystem(Phaser.Physics.ARCADE);
-    
+		game.physics.arcade.gravity.y = 250;
+		
     	map = game.add.tilemap('map');
     	map.addTilesetImage('Jungle', 'Jungle');
     	map.setCollisionByExclusion([654, 370]);
@@ -34,7 +37,9 @@ window.onload = function() {
     	bgLayer = map.createLayer('Background');
     	wallsLayer = map.createLayer('Walls');
     	
-    	player = game.add.sprite(32,32, 'soldier');
+    	player = game.add.sprite(32,96, 'soldier');
+    	
+    	cursors = game.input.keyboard.createCursorKeys();
     	
     	
     	game.world.setBounds(0, 0, 5000, 5000);
@@ -47,5 +52,19 @@ window.onload = function() {
     
     function update() {
 		//game.physics.arcade.collide(player, wallsLayer);
+		game.physics.arcade.collide(player, wallLayer);
+		
+		player.body.velocity.x = 0;
+		
+		if(cursors.left.isDown){
+			player.body.velocity.x = -150;
+		}
+		else if(cursors.right.isDown)P{
+			player.body.velocity.x = 150;
+		}
+		if(cursors.up.isDown && player.body.onFloor() && game.time.now > jumpTimer){
+			player.body.velocity.y = -200;
+			jumpTimer = game.time.now + 750;
+		}
     }
 };
