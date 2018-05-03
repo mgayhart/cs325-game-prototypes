@@ -10,11 +10,11 @@ window.onload = function() {
     // loading functions to reflect where you are putting the assets.
     // All loading functions will typically all be found inside "preload()".
 
-    var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
+    var game = new Phaser.Game( 800, 600, Phaser.CANVAS, 'game', { preload: preload, create: create, update: update } );
 
     function preload() {
         // Load an image and call it 'logo'.
-        game.load.image( 'Jungle', 'assets/jungle tileset.png' );
+        game.load.image( 'Jungle', 'assets/jungle tileset.png', 16, 16);
         game.load.tilemap('level1', 'assets/level1.json', null, Phaser.Tilemap.TILED_JSON);
         game.load.image('background', 'assets/bg.png');
         game.load.image('soldier', 'assets/soldier.png');
