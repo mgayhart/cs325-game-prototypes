@@ -9,68 +9,41 @@ window.onload = function() {
     // You will need to change the paths you pass to "game.load.image()" or any other
     // loading functions to reflect where you are putting the assets.
     // All loading functions will typically all be found inside "preload()".
-
-    var game = new Phaser.Game( 400, 300, Phaser.CANVAS, 'game', { preload: preload, create: create, update: update } );
-
+    
+    var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
+    
     function preload() {
-       game.load.image('Jungle', 'assets/jungleTileset.png', 16, 16);
-       game.load.tilemap('map', 'assets/level1.json', null, Phaser.Tilemap.TILED_JSON);
-       game.load.image('background', 'assets/bg.png');
-       game.load.image('soldier', 'assets/soldier.png');
+        // Load an image and call it 'logo'.
+        game.load.image( 'logo', 'assets/phaser.png' );
     }
-    var map;
-    var bgLayer;
-    var wallsLayer;
-    var player;
-    var bg;
-    var cursors;
-    var jumpTimer = 0;
-
+    
+    var bouncy;
+    
     function create() {
-    	game.physics.startSystem(Phaser.Physics.ARCADE);
-		game.physics.arcade.gravity.y = 250;
-
-
-    	map = game.add.tilemap('map');
-    	map.addTilesetImage('Jungle');
-    	map.setCollisionByExclusion([533, 370]);
-    	//map.setCollision([42]);
-
-    	bgLayer = map.createLayer('background');
-    	wallsLayer = map.createLayer('walls');
-
-
-
-    	player = game.add.sprite(32,144, 'soldier');
-    	game.physics.enable(player, Phaser.Physics.ARCADE);
-
-    	player.body.collideWorldBounds = true;
-
-    	cursors = game.input.keyboard.createCursorKeys();
-
-
-
-    	game.camera.follow(player);
-    	wallsLayer.resizeWorld();
-
-    	//bg = game.add.tileSprite(0, 0, 800, 600, 'background');
-    	//bg.fixedToCamera = true;
+        // Create a sprite at the center of the screen using the 'logo' image.
+        bouncy = game.add.sprite( game.world.centerX, game.world.centerY, 'logo' );
+        // Anchor the sprite at its center, as opposed to its top-left corner.
+        // so it will be truly centered.
+        bouncy.anchor.setTo( 0.5, 0.5 );
+        
+        // Turn on the arcade physics engine for this sprite.
+        game.physics.enable( bouncy, Phaser.Physics.ARCADE );
+        // Make it bounce off of the world bounds.
+        bouncy.body.collideWorldBounds = true;
+        
+        // Add some text using a CSS style.
+        // Center it in X, and position its top 15 pixels from the top of the world.
+        var style = { font: "25px Verdana", fill: "#9999ff", align: "center" };
+        var text = game.add.text( game.world.centerX, 15, "Build something amazing.", style );
+        text.anchor.setTo( 0.5, 0.0 );
     }
-
+    
     function update() {
-		game.physics.arcade.collide(player, wallsLayer);
-
-		player.body.velocity.x = 0;
-
-		if(cursors.left.isDown){
-			player.body.velocity.x = -150;
-		}
-		else if(cursors.right.isDown){
-			player.body.velocity.x = 150;
-		}
-		if(cursors.up.isDown && player.body.onFloor() && game.time.now > jumpTimer){
-			player.body.velocity.y = -200;
-			jumpTimer = game.time.now + 750;
-		}
+        // Accelerate the 'logo' sprite towards the cursor,
+        // accelerating at 500 pixels/second and moving no faster than 500 pixels/second
+        // in X or Y.
+        // This function returns the rotation angle that makes it visually match its
+        // new trajectory.
+        bouncy.rotation = game.physics.arcade.accelerateToPointer( bouncy, game.input.activePointer, 500, 500, 500 );
     }
 };
