@@ -10,55 +10,67 @@ window.onload = function() {
     // loading functions to reflect where you are putting the assets.
     // All loading functions will typically all be found inside "preload()".
 
-    var game = new Phaser.Game( 400, 300, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
+    var game = new Phaser.Game( 400, 300, Phaser.CANVAS, 'game', { preload: preload, create: create, update: update } );
 
     function preload() {
-        game.load.image( 'Jungle', 'assets/jungle tileset.png', 16, 16);
-        game.load.tilemap('level1', 'assets/level1.json', null, Phaser.Tilemap.TILED_JSON);
-        game.load.image('background', 'assets/bg.png');
-        game.load.image('soldier', 'assets/soldier.png');
+       game.load.image('Jungle', 'assets/jungleTileset.png', 16, 16);
+       game.load.tilemap('map', 'assets/level1.json', null, Phaser.Tilemap.TILED_JSON);
+       game.load.image('background', 'assets/bg.png');
+       game.load.image('soldier', 'assets/soldier.png');
     }
-
     var map;
-    var background;
-    var walls;
+    var bgLayer;
+    var wallsLayer;
     var player;
+    var bg;
     var cursors;
     var jumpTimer = 0;
 
-
-
     function create() {
-        game.physics.startSystem(Phaser.Physics.ARCADE);
-        game.physics.arcade.gravity.y = 250;
-        map = game.add.tilemap('level1');
-        map.addTilesetImage('Jungle');
-        map.setCollisionByExclusion([370, 533]);
+    	game.physics.startSystem(Phaser.Physics.ARCADE);
+		game.physics.arcade.gravity.y = 250;
 
-        background = map.createLayer('background');
-        walls = map.createLayer('walls');
 
-        player = game.add.sprite(16, 144, 'soldier');
-        game.physics.enable(player, Phaser.Physics.ARCADE);
-        player.body.collideWorldBounds = true;
+    	map = game.add.tilemap('map');
+    	map.addTilesetImage('Jungle');
+    	map.setCollisionByExclusion([533, 370]);
+    	//map.setCollision([42]);
 
-        cursors = game.input.keyboard.createCursorKeys();
-        game.camera.follow(player);
-        walls.resizeWorld();
+    	bgLayer = map.createLayer('background');
+    	wallsLayer = map.createLayer('walls');
+
+
+
+    	player = game.add.sprite(32,144, 'soldier');
+    	game.physics.enable(player, Phaser.Physics.ARCADE);
+
+    	player.body.collideWorldBounds = true;
+
+    	cursors = game.input.keyboard.createCursorKeys();
+
+
+
+    	game.camera.follow(player);
+    	wallsLayer.resizeWorld();
+
+    	//bg = game.add.tileSprite(0, 0, 800, 600, 'background');
+    	//bg.fixedToCamera = true;
     }
 
     function update() {
-        game.physics.arcade.collide(player, walls);
-        player.body.velocity.x = 0;
-        if(cursors.left.isDown){
-    			player.body.velocity.x = -150;
-    		}
-    		else if(cursors.right.isDown){
-    			player.body.velocity.x = 150;
-    		}
-    		if(cursors.up.isDown && player.body.onFloor() && game.time.now > jumpTimer){
-    			player.body.velocity.y = -200;
-    			jumpTimer = game.time.now + 750;
-    		}
+		game.physics.arcade.collide(player, wallsLayer);
+
+		player.body.velocity.x = 0;
+
+		if(cursors.left.isDown){
+			player.body.velocity.x = -150;
+		}
+		else if(cursors.right.isDown){
+			player.body.velocity.x = 150;
+		}
+		if(cursors.up.isDown && player.body.onFloor() && game.time.now > jumpTimer){
+			player.body.velocity.y = -200;
+			jumpTimer = game.time.now + 750;
+		}
     }
 };
