@@ -14,7 +14,7 @@ window.onload = function() {
     
     function preload() {
        game.load.image('Jungle', 'assets/jungleTileset.png', 16, 16);
-       game.load.tilemap('map', 'assets/level1.json', null, Phaser.Tilemap.TILED_JSON);
+       game.load.tilemap('map', 'assets/map.json', null, Phaser.Tilemap.TILED_JSON);
        game.load.image('background', 'assets/bg.png');
        game.load.image('soldier', 'assets/soldier.png');
     }
@@ -36,8 +36,8 @@ window.onload = function() {
     	map.setCollisionByExclusion([654, 370]);
     	//map.setCollision([42]);
     	
-    	bgLayer = map.createLayer('background');
-    	wallsLayer = map.createLayer('walls');
+    	bgLayer = map.createLayer('Background');
+    	wallsLayer = map.createLayer('Walls');
     	
     	
     	
