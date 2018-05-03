@@ -34,26 +34,13 @@
         {
          "columns":39,
          "firstgid":1,
-         "image":"Jungle Asset Pack\/jungle tileset\/jungle tileset.png",
+         "image":"jungleTileset.png",
          "imageheight":304,
          "imagewidth":624,
          "margin":0,
          "name":"Jungle",
          "spacing":0,
          "tilecount":741,
-         "tileheight":16,
-         "tilewidth":16
-        }, 
-        {
-         "columns":24,
-         "firstgid":742,
-         "image":"Jungle Asset Pack\/parallax background\/plx-1.png",
-         "imageheight":216,
-         "imagewidth":384,
-         "margin":0,
-         "name":"plx-1",
-         "spacing":0,
-         "tilecount":312,
          "tileheight":16,
          "tilewidth":16
         }],
