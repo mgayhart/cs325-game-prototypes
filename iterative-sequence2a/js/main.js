@@ -14,7 +14,7 @@ window.onload = function() {
 
     function preload() {
         // Load an image and call it 'logo'.
-        game.load.image( 'Jungle', 'assets/jungleTileset.png' );
+        game.load.image( 'Jungle', 'assets/jungle tileset.png' );
         game.load.tilemap('level1', 'assets/level1.json', null, Phaser.Tilemap.TILED_JSON);
         game.load.image('background', 'assets/bg.png');
         game.load.image('soldier', 'assets/soldier.png');
