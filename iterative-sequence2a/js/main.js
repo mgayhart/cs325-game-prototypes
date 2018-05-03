@@ -19,12 +19,28 @@ window.onload = function() {
         game.load.image('soldier', 'assets/soldier.png');
     }
     var map;
+    var background;
+    var walls;
+    var player;
+    var cursors;
+    var jumpTimer = 0;
 
     function create() {
         game.physics.startSystem(Phaser.Physics.ARCADE);
         game.physics.arcade.gravity.y = 250;
         map = game.add.tilemap('level1');
         map.addTilesetImage('Jungle');
+
+        background = map.createLayer('background');
+        walls = map.createLayer('walls');
+
+        player = game.add.sprite(16, 144, 'soldier');
+        game.physics.enable(player, Phaser.Physics.ARCADE);
+        player.body.collideWorldBounds = true;
+
+        cursors = game.input.keyboard.createCursorKeys();
+        game.camera.follow(player);
+        walls.resizeWorld();
     }
 
     function update() {
