@@ -18,10 +18,13 @@ window.onload = function() {
         game.load.image('background', 'assets/bg.png');
         game.load.image('soldier', 'assets/soldier.png');
     }
-
+    var map;
 
     function create() {
-
+        game.physics.startSystem(Phaser.Physics.ARCADE);
+        game.physics.arcade.gravity.y = 250;
+        map = game.add.tilemap('level1');
+        map.addTilesetImage('Jungle');
     }
 
     function update() {
